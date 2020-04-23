@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+    link(rel="shortcut icon" type="image/png" href="https://cdn.glitch.com/4a5edf96-9332-42e1-a7cd-5f41c4ca2a8e%2Ffavicon.png?v=1587532275740")
+    link(rel='stylesheet', href='/styles/style.css')
+    title Hello, world!
+  body
+    nav.navbar-expand-lg.navbar.navbar-dark.bg-dark
+      .container
+        a.navbar-brand(href="/") Express
+        button.navbar-toggler("navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarRes")
+          span.navbar-toggler-icon
+        #navbarRes.collapse.navbar-collapse
+          ul.navbar-nav.mx-auto
+            li.nav-item
+              a.nav-link(href="/users") Users
+            li.nav-item
+              a.nav-link(href="/books") Books
+            li.nav-item
+              a.nav-link(href="/transactions") Transactions
+          if user
+            .text-info= user.name
+    block content
+    
+    script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js')
+    script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js')

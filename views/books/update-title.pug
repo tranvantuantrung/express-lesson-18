@@ -1,0 +1,12 @@
+extends ../layouts/common
+
+block content
+  .container.pt-5
+    h2 Update title
+    
+    form(action="/books/update", method="POST")
+      .form-group
+        lable New title:
+        input(type="hidden", name="id", value=id)
+        input.form-control(type="text", name="title")
+      button.btn.btn-success Update

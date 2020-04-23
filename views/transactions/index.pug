@@ -1,0 +1,32 @@
+extends ../layouts/common
+
+block content
+  .container.pt-5
+    h2 Transaction
+    
+    table.table.table-bordered.my-3
+      tr
+        th Book title
+        th Brrower
+        th Is complete
+        th.text-center Action
+      each transaction in transactions
+        tr
+          td= transaction.bookTitle
+          td= transaction.userName
+          td= transaction.isComplete ? transaction.isComplete : "False"
+          td.text-center
+            a.btn.btn-info(href="/transactions/" + transaction.id +"/complete") Complete
+            
+    form(method="POST")
+      .form-group
+        lable Book title:
+        select.form-control(name="bookId", style="width:350px")
+          each book in books
+            option(value=book.id)= book.title
+        lable User name:
+        select.form-control(name="userId", style="width:350px")
+          each user in users
+            option(value=user.id)= user.name
+      button.btn.btn-success create
+  

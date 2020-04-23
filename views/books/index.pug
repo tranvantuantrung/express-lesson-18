@@ -1,0 +1,28 @@
+extends ../layouts/common
+
+block content
+  .container.pt-5
+    h1 Books
+    table.table.table-bordered.my-3
+      tr
+        th Book title
+        th Description
+        th.text-center(colspan="2") Action
+      each book in books
+        tr
+          td= book.title
+          td= book.description
+          td.text-center
+            a.btn.btn-info(href="/books/" + book.id + "/update") Update title
+          td.text-center
+            a.btn.btn-danger(href="/books/" + book.id + "/delete") Delete
+    
+    h3 Add book  
+      
+    form(method="POST")
+       .form-group
+          lable Title:
+          input.form-control(type="text", name="title", style="width:350px")
+          lable Description:
+          input.form-control(type="text", name="description", style="width:350px")
+       button.btn.btn-success Add
