@@ -1,0 +1,12 @@
+extends ../layouts/common
+
+block content
+  .container.pt-5
+    h2 Update name
+    
+    form(action="/users/update", method="POST")
+      .form-group
+        lable New name:
+        input(type="hidden", name="id", value=id)
+        input.form-control(type="text", name="name", style="width:350px")
+      button.btn.btn-success Update
